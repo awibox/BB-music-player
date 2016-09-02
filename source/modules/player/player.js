@@ -2,7 +2,7 @@ import template from './player.hbs';
 import './player.scss'
 
 export default class Player {
-    constructor(data) {
+    constructor(data, id) {
         function PageSoundPlay()
         {
             var nowTime = new Date().getTime();
@@ -20,7 +20,7 @@ export default class Player {
                 PageSoundStop();
         }
         $(document).ready(function(){
-            $(".page").append(template(data));
+            $((id)? id : 'body').append(template(data));
             if (window.addEventListener) {
                 window.addEventListener("storage", onStorageEvent, false);
             } else {

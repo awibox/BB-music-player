@@ -1,0 +1,22 @@
+.tracks {
+  &:after {
+    clear:both;
+    display:block;
+    content: ""
+  }
+  &__item {
+    padding: 5px;
+    border-top:1px solid #eee;
+    &:after {
+      clear:both;
+      display:block;
+      content: ""
+    }
+    &-name {
+      float: left;
+    }
+    &-time {
+      float: right;
+    }
+  }
+}
