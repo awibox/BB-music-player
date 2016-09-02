@@ -8,50 +8,13 @@
     <meta name="keywords" content="">
 </head>
 <body class="page">
-<audio id="PageSound" src="mp3/track2.mp3"></audio>
+<audio id="PageSound" controls></audio>
 <div class="play">Играть</div>
 <div class="stop">Стоп</div>
 
-<div class="list">
-    <div class="list-item"></div>
-</div>
+<div class="list"></div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-    function PageSoundPlay()
-    {
-        var nowTime = new Date().getTime();
-        console.log('nowTime ',nowTime);
-        var PageSound = document.getElementById('PageSound');
-        console.log('PageSound ',PageSound);
-        console.log(localStorage['PageSound']);
-        localStorage['PageSound'] = nowTime;
-
-        PageSound.play();
-    }
-    function PageSoundStop()
-    {
-        PageSound.pause();
-        PageSound.currentTime = 0;
-    }
-    function onStorageEvent(storageEvent){
-        console.log("storageEvent.key", storageEvent.key);
-        if(storageEvent.key == 'PageSound')
-            PageSoundStop();
-    }
-    $(document).ready(function(){
-        if (window.addEventListener) {
-            window.addEventListener("storage", onStorageEvent, false);
-        } else {
-            window.attachEvent("onstorage", onStorageEvent);
-        }
-        $('.play').click(function() {
-            PageSoundPlay();
-        });
-        $('.stop').click(function() {
-            PageSoundStop();
-        });
-    });
-</script>
+<script src="app.js"></script>
 </body>
 </html>
