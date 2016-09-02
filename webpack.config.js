@@ -11,7 +11,7 @@ var settings = {
     chunks: 'js/chunks/[name].js',
     publicPath: NODE_ENV == 'development' ? '/' : '/webpack/public/',
     contentBase: "./public",
-    port: 6000
+    port: 4444
 };
 
 module.exports = {
