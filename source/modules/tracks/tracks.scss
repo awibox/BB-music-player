@@ -4,8 +4,12 @@
     display:block;
     content: ""
   }
+  &__title {
+    font-size: 18px;
+    padding: 10px;
+  }
   &__item {
-    padding: 5px;
+    padding: 10px;
     border-top:1px solid #eee;
     &:after {
       clear:both;
