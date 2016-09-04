@@ -21,11 +21,11 @@ function initAudio(elem) {
     var url = elem.attr('data-src');
     var title = elem.attr('title');
 
-    // var cover = elem.attr('cover');
+    var cover = elem.attr('data-cover');
     // var artist = elem.attr('artist');
     $('.player__title').text(title);
     // $('.player .artist').text(artist);
-    // $('.player .cover').css('background-image','url(data/' + cover+')');
+    $('.player__cover').css('background-image','url('+ cover +')');
 
     song = new Audio(url);
 
