@@ -40,6 +40,8 @@ function initAudio(elem) {
 }
 
 function playAudio() {
+    var nowTime = new Date().getTime();
+    localStorage['song'] = nowTime;
     song.addEventListener('ended', function () {
         var next = $('.tracks li.active').next();
         if (next.length == 0) {
@@ -57,17 +59,22 @@ function playAudio() {
 }
 function stopAudio() {
     song.pause();
+    song.currentTime = 0;
 
     $('.fa-play').removeClass('hidden');
     $('.fa-pause').addClass('hidden');
 }
+function onStorageEvent(storageEvent){
+    if(storageEvent.key == 'song')
+        stopAudio();
+}
 
 $(document).ready(function(){
-    // if (window.addEventListener) {
-    //     window.addEventListener("storage", onStorageEvent, false);
-    // } else {
-    //     window.attachEvent("onstorage", onStorageEvent);
-    // }
+    if (window.addEventListener) {
+        window.addEventListener("storage", onStorageEvent, false);
+    } else {
+        window.attachEvent("onstorage", onStorageEvent);
+    }
 
 
     // initialization - first element in playlist
@@ -87,10 +94,7 @@ $(document).ready(function(){
     //     PageSound.pause();
     //     PageSound.currentTime = 0;
     // }
-    // function onStorageEvent(storageEvent){
-    //     if(storageEvent.key == 'PageSound')
-    //         PageSoundStop();
-    // }
+
 
     // play click
     $('.fa-play').click(function (e) {
