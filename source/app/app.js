@@ -18,14 +18,11 @@ var song;
 // var volume = $('.volume');
 
 function initAudio(elem) {
-    console.log(elem);
-    var url = elem.attr('src');
+    var url = elem.attr('data-src');
     var title = elem.attr('title');
 
     // var cover = elem.attr('cover');
     // var artist = elem.attr('artist');
-    console.log("url", url);
-    console.log("title", title);
     $('.player__title').text(title);
     // $('.player .artist').text(artist);
     // $('.player .cover').css('background-image','url(data/' + cover+')');
@@ -124,6 +121,12 @@ $(document).ready(function(){
             prev = $('.tracks li:last-child');
         }
         initAudio(prev);
+        playAudio();
+    });
+
+    $('.tracks__item').click(function () {
+        stopAudio();
+        initAudio($(this));
         playAudio();
     });
 
