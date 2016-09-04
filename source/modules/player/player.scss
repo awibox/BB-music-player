@@ -7,5 +7,17 @@
   }
   &__title {
     float: left;
+    height: 50px;
+    line-height: 50px;
+    width: 300px;
+  }
+  &__controls {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 10px;
+    &-item {
+      padding: 5px;
+    }
   }
 }

@@ -1,9 +1,8 @@
-<div class="tracks">
-    <div class="tracks__title">Популярные треки:</div>
+<ul class="tracks">
 {{#each tracks}}
-    <div class="tracks__item" data-name="{{artist}} - {{title}}" data-src="{{src}}">
+    <li class="tracks__item" title="{{artist}} - {{title}}" src="{{src}}">
         <div class="tracks__item-name">{{artist}} - {{title}}</div>
         <div class="tracks__item-time">{{time}}</div>
-    </div>
+    </ul>
 {{/each}}
-</div>
+</ul>
