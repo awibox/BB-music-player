@@ -80,22 +80,6 @@ $(document).ready(function(){
     // initialization - first element in playlist
     initAudio($('.tracks li:first-child'));
 
-
-
-    // function PageSoundPlay(id)
-    // {
-    //     var nowTime = new Date().getTime();
-    //     var PageSound = document.getElementById('PageSound');
-    //     localStorage['PageSound'] = nowTime;
-    //     PageSound.play();
-    // }
-    // function PageSoundStop()
-    // {
-    //     PageSound.pause();
-    //     PageSound.currentTime = 0;
-    // }
-
-
     // play click
     $('.fa-play').click(function (e) {
         e.preventDefault();
@@ -141,21 +125,4 @@ $(document).ready(function(){
         initAudio($(this));
         playAudio();
     });
-
-
-    // $('.play').click(function() {
-    //     PageSoundPlay();
-    // });
-    // $('.stop').click(function() {
-    //     PageSoundStop();
-    // });
-    // $('.tracks__item').click(function(){
-    //     PageSound.src = $(this).attr('data-src');
-    //     $('.player__title').html($(this).attr('data-name'));
-    //     PageSound.label = $(this).attr('data-name');
-    //     PageSound.addEventListener('ended', function (){
-    //         console.log($(this));
-    //     });
-    //     PageSoundPlay(id);
-    // });
 });
