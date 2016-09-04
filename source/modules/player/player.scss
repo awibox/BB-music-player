@@ -1,5 +1,8 @@
 .player {
   float: right;
+  .hidden {
+    display: none;
+  }
   &:after {
     clear:both;
     display:block;

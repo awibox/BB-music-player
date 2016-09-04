@@ -38,8 +38,23 @@ function initAudio(elem) {
         // tracker.slider('value', curtime);
     });
 
-    // $('.playlist li').removeClass('active');
-    // elem.addClass('active');
+    $('.tracks li').removeClass('active');
+    elem.addClass('active');
+}
+
+function playAudio() {
+    song.play();
+
+    // tracker.slider("option", "max", song.duration);
+
+    $('.fa-play').addClass('hidden');
+    $('.fa-pause').removeClass('hidden');
+}
+function stopAudio() {
+    song.pause();
+
+    $('.fa-play').removeClass('hidden');
+    $('.fa-pause').addClass('hidden');
 }
 
 $(document).ready(function(){
@@ -50,29 +65,11 @@ $(document).ready(function(){
     // }
 
 
-// initialization - first element in playlist
+    // initialization - first element in playlist
     initAudio($('.tracks li:first-child'));
 
 
-    // function playAudio() {
-    //     song.play();
-    //
-    //     tracker.slider("option", "max", song.duration);
-    //
-    //     $('.play').addClass('hidden');
-    //     $('.pause').addClass('visible');
-    // }
-    // function stopAudio() {
-    //     song.pause();
-    //
-    //     $('.play').removeClass('hidden');
-    //     $('.pause').removeClass('visible');
-    // }
-    //
-    //
-    //
-    //
-    //
+
     // function PageSoundPlay(id)
     // {
     //     var nowTime = new Date().getTime();
@@ -89,19 +86,48 @@ $(document).ready(function(){
     //     if(storageEvent.key == 'PageSound')
     //         PageSoundStop();
     // }
-    // // play click
-    // $('.play').click(function (e) {
-    //     e.preventDefault();
-    //
-    //     playAudio();
-    // });
-    //
-    // // pause click
-    // $('.pause').click(function (e) {
-    //     e.preventDefault();
-    //
-    //     stopAudio();
-    // });
+
+    // play click
+    $('.fa-play').click(function (e) {
+        e.preventDefault();
+        playAudio();
+    });
+
+    // pause click
+    $('.fa-pause').click(function (e) {
+        e.preventDefault();
+        stopAudio();
+    });
+
+    // forward click
+    $('.fa-forward').click(function (e) {
+        e.preventDefault();
+
+        stopAudio();
+
+        var next = $('.tracks li.active').next();
+        if (next.length == 0) {
+            next = $('.tracks li:first-child');
+        }
+        initAudio(next);
+        playAudio();
+    });
+
+    // rewind click
+    $('.fa-backward').click(function (e) {
+        e.preventDefault();
+
+        stopAudio();
+
+        var prev = $('.tracks li.active').prev();
+        if (prev.length == 0) {
+            prev = $('.tracks li:last-child');
+        }
+        initAudio(prev);
+        playAudio();
+    });
+
+
     // $('.play').click(function() {
     //     PageSoundPlay();
     // });
