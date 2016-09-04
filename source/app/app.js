@@ -40,10 +40,18 @@ function initAudio(elem) {
 }
 
 function playAudio() {
+    song.addEventListener('ended', function () {
+        var next = $('.tracks li.active').next();
+        if (next.length == 0) {
+            next = $('.tracks li:first-child');
+        }
+        initAudio(next);
+        playAudio();
+    }, false);
     song.play();
 
-    // tracker.slider("option", "max", song.duration);
 
+    // tracker.slider("option", "max", song.duration);
     $('.fa-play').addClass('hidden');
     $('.fa-pause').removeClass('hidden');
 }

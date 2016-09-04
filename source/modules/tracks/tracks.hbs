@@ -2,7 +2,10 @@
 {{#each tracks}}
     <li class="tracks__item" title="{{artist}} - {{title}}" data-src="{{src}}">
         <div class="tracks__item-cover" style="background-image: url({{cover}})"></div>
-        <div class="tracks__item-name">{{artist}} - {{title}}</div>
+        <div class="tracks__item-name">
+            <div class="tracks__item-artist">{{artist}}</div>
+            <div class="tracks__item-title">{{title}}</div>
+        </div>
         <div class="tracks__item-time">{{time}}</div>
     </li>
 {{/each}}
