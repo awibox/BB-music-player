@@ -12,10 +12,11 @@ new Player(data, '#header-wrap');
 new Tracks(data, '#content-wrap');
 
 import './../build/sass/retina.scss';
+import 'jquery-ui-bundle';
 
 var song;
 // var tracker = $('.tracker');
-// var volume = $('.volume');
+
 
 function initAudio(elem) {
     var url = elem.attr('data-src');
@@ -79,6 +80,20 @@ $(document).ready(function(){
 
     // initialization - first element in playlist
     initAudio($('.tracks li:first-child'));
+
+    song.volume = 0.8;
+    var volume = $('.volume');
+    volume.slider({
+        range: 'min',
+        min: 1,
+        max: 100,
+        value: 80,
+        start: function(event,ui) {},
+        slide: function(event, ui) {
+            song.volume = ui.value / 100;
+        },
+        stop: function(event,ui) {},
+    });
 
     // play click
     $('.fa-play').click(function (e) {

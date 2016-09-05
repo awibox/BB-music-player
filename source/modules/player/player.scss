@@ -1,5 +1,6 @@
 .player {
   float: right;
+  position: relative;
   .hidden {
     display: none;
   }
@@ -32,4 +33,10 @@
       text-align: center;
     }
   }
+}
+.volume {
+  height: 11px;
+  width: 112px;
+  margin-top: 17px;
+  float: left;
 }
