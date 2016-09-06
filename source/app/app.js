@@ -13,8 +13,7 @@ new Tracks(data, '#content-wrap');
 
 import './../build/sass/retina.scss';
 import slider from 'jquery-ui/ui/widgets/slider';
-import 'jquery-ui/themes/base/slider.css';
-import 'jquery-ui/themes/base/theme.css';
+
 
 
 
@@ -26,8 +25,8 @@ $(document).ready(function(){
     }
 
     let song,
-        tracker = $('.tracker'),
-        volume = $('.volume');
+        tracker = $('.player__tracker'),
+        volume = $('.player__volume');
 
     initAudio($('.tracks li:first-child'));
 

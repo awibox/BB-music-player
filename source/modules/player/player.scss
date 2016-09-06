@@ -1,6 +1,7 @@
 .player {
   float: right;
   position: relative;
+  width: 600px;
   .hidden {
     display: none;
   }
@@ -33,17 +34,29 @@
       text-align: center;
     }
   }
-}
-.volume {
-  height: 11px;
-  width: 112px;
-  margin-top: 17px;
-  float: left;
-}
-.tracker {
-  height: 15px;
-  left: 20px;
-  position: absolute;
-  top: 50px;
-  width: 285px;
+  &__volume {
+    height: 5px;
+    width: 80px;
+    position: absolute;
+    background: #888;
+    right: 0;
+    top: 21px;
+    background: #555;
+    .ui-slider-range {
+      background: red;
+      height: 5px;
+    }
+  }
+  &__tracker {
+    height: 5px;
+    left: 85px;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #555;
+    .ui-slider-range {
+      background: red;
+      height: 5px;
+    }
+  }
 }
