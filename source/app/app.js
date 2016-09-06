@@ -82,6 +82,8 @@ $(document).ready(function(){
 
         $('.tracks li').removeClass('active');
         elem.addClass('active');
+
+
     }
 
     function playAudio() {
@@ -95,6 +97,9 @@ $(document).ready(function(){
 
         $('.fa-play').addClass('hidden');
         $('.fa-pause').removeClass('hidden');
+        song.volume = localStorage['volume'];
+        console.log(song.volume);
+
     }
     function stopAudio() {
         song.pause();
