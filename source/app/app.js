@@ -13,7 +13,6 @@ new Tracks(data, '#content-wrap');
 
 import './../build/sass/retina.scss';
 import slider from 'jquery-ui/ui/widgets/slider';
-import 'jquery-ui/themes/base/core.css';
 import 'jquery-ui/themes/base/slider.css';
 import 'jquery-ui/themes/base/theme.css';
 
@@ -51,7 +50,6 @@ $(document).ready(function(){
         start: function(event,ui) {},
         slide: function(event, ui) {
             song.currentTime = ui.value;
-            console.log(song.currentTime);
         },
         stop: function(event,ui) {}
     });
@@ -71,9 +69,7 @@ $(document).ready(function(){
         // timeupdate event listener
         song.addEventListener('timeupdate',function (){
             let curtime = parseInt(song.currentTime, 10);
-            console.log(curtime);
             tracker.slider('value', curtime);
-            console.log(tracker);
         });
         song.addEventListener('ended', function () {
             let next = $('.tracks li.active').next();
@@ -89,9 +85,10 @@ $(document).ready(function(){
     }
 
     function playAudio() {
-        song.pause();
         song.play();
-        tracker.slider("option", "max", song.duration);
+        setTimeout(function () {
+            tracker.slider("option", "max", song.duration);
+        },1000);
 
         let nowTime = new Date().getTime();
         localStorage['song'] = nowTime;
