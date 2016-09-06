@@ -24,8 +24,11 @@ $(document).ready(function(){
     let song,
         tracker = $('.player__tracker'),
         volume = $('.player__volume');
-
-    initAudio($('.tracks li:first-child'));
+    if (localStorage['elem']) {
+        initAudio($(localStorage['elem']));
+    } else {
+        initAudio($('.tracks li:first-child'));
+    }
     if(localStorage['volume']) {
         song.volume = localStorage['volume'];
     } else {
@@ -55,6 +58,7 @@ $(document).ready(function(){
     });
 
     function initAudio(elem) {
+        localStorage['elem'] = '#' + elem.attr('id');
         let url = elem.attr('data-src');
         let title = elem.attr('title');
 
@@ -98,8 +102,6 @@ $(document).ready(function(){
         $('.fa-play').addClass('hidden');
         $('.fa-pause').removeClass('hidden');
         song.volume = localStorage['volume'];
-        console.log(song.volume);
-
     }
     function stopAudio() {
         song.pause();
