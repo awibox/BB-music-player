@@ -1,6 +1,6 @@
 <ul class="tracks">
 {{#each tracks}}
-    <li class="tracks__item" title="{{artist}} - {{title}}" data-src="{{src}}" data-cover="{{cover}}">
+    <li id="{{id}}" class="tracks__item" title="{{artist}} - {{title}}" data-src="{{src}}" data-cover="{{cover}}">
         <div class="tracks__item-cover" style="background-image: url({{cover}})"></div>
         <div class="tracks__item-name">
             <div class="tracks__item-artist">{{artist}}</div>
