@@ -14,9 +14,6 @@ new Tracks(data, '#content-wrap');
 import './../build/sass/retina.scss';
 import slider from 'jquery-ui/ui/widgets/slider';
 
-
-
-
 $(document).ready(function(){
     if (window.addEventListener) {
         window.addEventListener("storage", onStorageEvent, false);
@@ -29,17 +26,21 @@ $(document).ready(function(){
         volume = $('.player__volume');
 
     initAudio($('.tracks li:first-child'));
-
-    song.volume = 0.8;
+    if(localStorage['volume']) {
+        song.volume = localStorage['volume'];
+    } else {
+        song.volume = 0.8;
+    }
 
     volume.slider({
         range: 'min',
         min: 1,
         max: 100,
-        value: 80,
+        value: localStorage['volume'] ? song.volume*100 : 80,
         start: function(event,ui) {},
         slide: function(event, ui) {
             song.volume = ui.value / 100;
+            localStorage['volume'] = song.volume;
         },
         stop: function(event,ui) {},
     });
