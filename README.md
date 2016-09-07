@@ -17,14 +17,5 @@ npm install
 ```
  npm start
 ```
-И открыть в браузере http://127.0.0.1:8080
+И открыть в браузере http://127.0.0.1:4444
 
-
-Документации:
-==================
-
-+ webpack - http://webpack.github.io/docs/
-+ babel - http://babeljs.io/docs/learn-es2015/
-+ handlebars - http://handlebarsjs.com/
-+ less - http://lesscss.org/
-+ ECMA Script 6 - http://habrahabr.ru/post/252323/
