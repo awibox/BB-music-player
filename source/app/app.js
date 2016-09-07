@@ -29,7 +29,7 @@ $(document).ready(function(){
     } else {
         initAudio($('.tracks li:first-child'));
     }
-    if(localStorage['volume']) {
+    if (localStorage['volume']) {
         song.volume = localStorage['volume'];
     } else {
         song.volume = 0.8;
@@ -70,9 +70,7 @@ $(document).ready(function(){
         let title = elem.attr('title');
 
         let cover = elem.attr('data-cover');
-        // let artist = elem.attr('artist');
         $('.player__title').text(title);
-        // $('.player .artist').text(artist);
         $('.player__cover').css('background-image','url('+ cover +')');
 
         song = new Audio(url);
