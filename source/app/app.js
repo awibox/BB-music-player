@@ -34,6 +34,13 @@ $(document).ready(function(){
     } else {
         song.volume = 0.8;
     }
+    if (localStorage['curtime']) {
+        song.currentTime = localStorage['curtime'];
+        setTimeout(function () {
+            tracker.slider("option", "max", song.duration);
+            tracker.slider('value', song.currentTime);
+        },1000);
+    }
 
     volume.slider({
         range: 'min',
@@ -74,6 +81,7 @@ $(document).ready(function(){
         song.addEventListener('timeupdate',function (){
             let curtime = parseInt(song.currentTime, 10);
             tracker.slider('value', curtime);
+            localStorage['curtime'] = curtime;
         });
         song.addEventListener('ended', function () {
             let next = $('.tracks li.active').next();
