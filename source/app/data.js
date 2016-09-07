@@ -1,14 +1,14 @@
 var data = {
   header: {
-    name: "BB-music-player",
+    name: "BB-music-player"
   },
   tracks: [
     {
-      artist: "Chaz Robinson",
-      title: "Love Will Come Back Again",
-      time: "03:56",
-      src: "mp3/Chaz_Robinson_-_Love_Will_Come_Back_Again.mp3",
-      cover: "https://imgjam2.jamendo.com/albums/s136/136930/covers/1.50.jpg"
+      artist: "Gigatop",
+      title: "Turn all the lights",
+      time: "03:20",
+      src: "mp3/Gigatop_-_Turn_all_the_lights.mp3",
+      cover: "https://imgjam2.jamendo.com/albums/s148/148857/covers/1.50.jpg"
     },
     {
       artist: "Funky Stereo",
@@ -60,6 +60,13 @@ var data = {
       cover: "https://imgjam2.jamendo.com/track/s1342/1342712/covers/1.50.jpg"
     },
     {
+      artist: "Chaz Robinson",
+      title: "Love Will Come Back Again",
+      time: "03:56",
+      src: "mp3/Chaz_Robinson_-_Love_Will_Come_Back_Again.mp3",
+      cover: "https://imgjam2.jamendo.com/albums/s136/136930/covers/1.50.jpg"
+    },
+    {
       artist: "Soundshrim",
       title: "Ambient Background",
       time: "02:24",
@@ -93,13 +100,6 @@ var data = {
       time: "06:17",
       src: "mp3/Hasenchat_-_04_I_Never_make_it___EDM_Mix__.mp3",
       cover: "https://imgjam2.jamendo.com/albums/s142/142269/covers/1.50.jpg"
-    },
-    {
-      artist: "Gigatop",
-      title: "Turn all the lights",
-      time: "03:20",
-      src: "mp3/Gigatop_-_Turn_all_the_lights.mp3",
-      cover: "https://imgjam2.jamendo.com/albums/s148/148857/covers/1.50.jpg"
     },
     {
       artist: "Gigatop",

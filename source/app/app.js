@@ -13,8 +13,10 @@ new Tracks(data, '#content-wrap');
 
 import './../build/sass/retina.scss';
 import slider from 'jquery-ui/ui/widgets/slider';
+import sortable from 'jquery-ui/ui/widgets/sortable.js'
 
 $(document).ready(function(){
+
     if (window.addEventListener) {
         window.addEventListener("storage", onStorageEvent, false);
     } else {
@@ -24,16 +26,19 @@ $(document).ready(function(){
     let song,
         tracker = $('.player__tracker'),
         volume = $('.player__volume');
+
     if (localStorage['elem']) {
         initAudio($(localStorage['elem']));
     } else {
         initAudio($('.tracks li:first-child'));
     }
+
     if (localStorage['volume']) {
         song.volume = localStorage['volume'];
     } else {
         song.volume = 0.8;
     }
+
     if (localStorage['curtime']) {
         song.currentTime = localStorage['curtime'];
         setTimeout(function () {
@@ -75,7 +80,6 @@ $(document).ready(function(){
 
         song = new Audio(url);
 
-        // timeupdate event listener
         song.addEventListener('timeupdate',function (){
             let curtime = parseInt(song.currentTime, 10);
             tracker.slider('value', curtime);
@@ -92,8 +96,6 @@ $(document).ready(function(){
 
         $('.tracks li').removeClass('active');
         elem.addClass('active');
-
-
     }
 
     function playAudio() {
@@ -109,12 +111,14 @@ $(document).ready(function(){
         $('.fa-pause').removeClass('hidden');
         song.volume = localStorage['volume'];
     }
+
     function stopAudio() {
         song.pause();
 
         $('.fa-play').removeClass('hidden');
         $('.fa-pause').addClass('hidden');
     }
+
     function onStorageEvent(storageEvent){
         if(storageEvent.key == 'song')
             stopAudio();
@@ -165,4 +169,6 @@ $(document).ready(function(){
         initAudio($(this));
         playAudio();
     });
+
+    $('.tracks').sortable();
 });
